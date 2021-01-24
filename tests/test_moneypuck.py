@@ -51,6 +51,12 @@ def test_game_events():
         assert isinstance(df, pd.DataFrame) and len(df) > 0
 
 
+def test_game_current_win_prob():
+    with TestMoneyPuck() as mp:
+        d = mp.game_current_win_prob("van", "mtl", "2021-01-23")
+        assert isinstance(d, dict) and len(d) > 0
+
+
 def test_power_rankings():
     with TestMoneyPuck() as mp:
         df = mp.power_rankings()
@@ -69,4 +75,4 @@ def test_playoff_odds():
 def test_win_probs(iso_date):
     with TestMoneyPuck() as mp:
         l_ = mp.win_probs(iso_date)
-        assert isinstance(l_, list) and len(list) > 0
+        assert isinstance(l_, list) and len(l_) > 0
